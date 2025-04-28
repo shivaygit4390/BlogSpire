@@ -23,9 +23,9 @@ const Footer = () => {
           {/* Social Icons */}
           <div className="flex justify-center items-center gap-4 mt-6">
             {[
-              { icon: FaGithub, link: "https://github.com/" },
-              { icon: FaLinkedinIn, link: "https://linkedin.com/" },
-              { icon: FaInstagram, link: "https://instagram.com/" },
+              { icon: FaGithub, link: "https://github.com/shivaygit4390" },
+              { icon: FaLinkedinIn, link: "https://www.linkedin.com/in/nirmal01/" },
+              { icon: FaInstagram, link: "https://www.instagram.com/imperfect___99/" },
             ].map(({ icon: Icon, link }, index) => (
               <motion.a
                 key={index}
