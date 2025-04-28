@@ -21,7 +21,7 @@ const Dashboard = () => {
   const [loadingPosts, setLoadingPosts] = useState(false);
   useEffect(() => {
     const fetchPostsIfNeeded = async () => {
-      if (cachedPosts == null) {
+      if (cachedPosts == null || cachedPosts.length == 0 || !cachedPosts) {
         try {
           setLoadingPosts(true);
           const postsResponse = await appwriteService.getPosts();
