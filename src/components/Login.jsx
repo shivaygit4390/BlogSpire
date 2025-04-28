@@ -37,7 +37,7 @@ const Login = () => {
     } catch (e) {
       setError(e.message);
       reset();
-      toast.error("Invalid credentials or login failed.");
+      toast.error("Invalid credentials, login failed or Account not found");
     } finally {
       setLoadingUser(false);
     }

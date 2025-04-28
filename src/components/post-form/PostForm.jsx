@@ -57,7 +57,7 @@ const PostForm = ({ post }) => {
             posts: cachedPosts.map((p) => (p.$id === dbPost.$id ? dbPost : p)),
           })
         );
-        toast.success("✅ Post updated successfully!");
+        toast.success(" Post updated successfully!");
         navigate(`/post/${dbPost.$id}`);
       }
     }

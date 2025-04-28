@@ -21,7 +21,7 @@ const Dashboard = () => {
   const [loadingPosts, setLoadingPosts] = useState(false);
   useEffect(() => {
     const fetchPostsIfNeeded = async () => {
-      if (!cachedPosts || cachedPosts.length === 0) {
+      if (cachedPosts == null) {
         try {
           setLoadingPosts(true);
           const postsResponse = await appwriteService.getPosts();
@@ -43,7 +43,7 @@ const Dashboard = () => {
       setDeletingAccount(true);
       await authService.deleteAccount();
       dispatch(logout());
-      toast.success("Your account has been deleted.");
+      toast.success("Please contact Admin to delete your Account");
       navigate("/signup");
     } catch (error) {
       toast.error(
@@ -86,13 +86,7 @@ const Dashboard = () => {
     return true; // All
   });
 
-  if (!userData || !cachedPosts) {
-    return (
-      <div className="min-h-screen flex justify-center items-center">
-        <Loader />
-      </div>
-    );
-  }
+  
   if (!userData || loadingPosts) {
     return (
       <div className="min-h-screen flex justify-center items-center">
