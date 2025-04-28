@@ -86,10 +86,10 @@ const Home = () => {
 
   if (!authStatus) {
     return (
-      <section className="w-full py-16 text-center bg-gradient-to-br from-slate-100 to-slate-200 min-h-[70vh]">
+      <section className="w-full h-full py-16 text-center  flex flex-col justify-center items-center">
         <Container>
           <motion.div
-            className="max-w-xl mx-auto bg-white p-10 rounded-xl shadow-md border border-slate-300"
+            className="max-w-xl h-full mx-auto bg-white p-10 rounded-xl shadow-md border border-slate-300"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}

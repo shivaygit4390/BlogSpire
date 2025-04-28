@@ -63,6 +63,10 @@ const PostForm = ({ post }) => {
     }
     // when to create post and no post is passed
     else {
+      if (!data.image || data.image.length === 0 ) {
+        toast.error(" Image is required to create a blog post!");
+        return; // Stop further execution
+      }
       const file = await appwriteService.uploadFile(data.image[0]);
       if (file) {
         const fileId = file.$id;
