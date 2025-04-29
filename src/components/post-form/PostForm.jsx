@@ -38,7 +38,7 @@ const PostForm = ({ post }) => {
   // now setting up submit logic for update and create
   const submit = async (data) => {
     if (post) {
-      if (!data.image || data.image.length === 0 ) {
+      if ( !post.featuredImage ) {
         toast.error(" Image is required to create a blog post!");
         return; // Stop further execution
       }
