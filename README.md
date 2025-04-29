@@ -42,7 +42,7 @@ Whether you're a writer, a tech enthusiast, or simply exploring, BlogSpire offer
 - **HTML Parsing**: [html-react-parser](https://www.npmjs.com/package/html-react-parser) (for rendering rich text content safely)
 - **Notification System**: [React Hot Toast](https://react-hot-toast.com/)
 - **Development Tools**: [Vite](https://vitejs.dev/), [ESLint](https://eslint.org/)
-- **Hosting**: [Vercel](https://vercel.com/) (will link after deployment)
+- **Hosting**: [Vercel](https://blog-spire.vercel.app/) 
 ---
 ## **🛠️ Setup Instructions**
 1. Clone the Repository
