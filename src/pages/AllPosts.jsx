@@ -29,7 +29,7 @@ const AllPosts = () => {
       } else {
         // Otherwise will fetch from Appwrite and cache it
 
-        appwriteService.getPosts().then((posts) => {
+        appwriteService.getPosts([]).then((posts) => {
           if (posts) {
             const sorted = sortPosts(posts.documents);
             setPosts(sorted);

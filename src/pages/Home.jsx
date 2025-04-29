@@ -23,7 +23,7 @@ const Home = () => {
         setPosts(sorted);
         setLoading(false);
       } else {
-        appwriteService.getPosts().then((posts) => {
+        appwriteService.getPosts([]).then((posts) => {
           const sorted = sortPosts(posts.documents);
           setPosts(sorted);
           dispatch(setCachedPosts({ posts: sorted }));
@@ -43,7 +43,7 @@ const Home = () => {
   // implementing search feature
   const [searchQuery, setSearchQuery] = useState("");
   // filtering posts on the basis of the querry recieved
-  const filteredPosts = posts.filter((post) => {
+  const filteredPosts = posts?.filter((post) => post.status === "active").filter((post) => {
     const query = searchQuery.toLowerCase();
     return (
       post.title.toLowerCase().includes(query) ||
