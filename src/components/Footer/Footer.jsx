@@ -14,7 +14,7 @@ const Footer = () => {
       >
         <div className="max-w-6xl mx-auto text-center space-y-6">
           <h2 className="text-3xl sm:text-4xl font-bold text-yellow-400 tracking-tight">
-            BlogSpire
+          🪶BlogSpire
           </h2>
           <p className="text-sm text-slate-300 max-w-xl mx-auto">
             Crafting content that resonates. Empowering voices to inspire. ✍️🚀

@@ -63,15 +63,15 @@ const Post = () => {
     <div className="py-10 px-4 sm:px-[8vw] md:px-[12vw]">
       <Container>
         {/* Image with edit buttons */}
-        <div className="relative mb-6">
+        <div className="relative mb-6 flex justify-center items-center ">
           <img
             src={appwriteService.getFileView(post.featuredImage)}
             alt={post.title}
-            className="w-full rounded-lg shadow-md"
+            className=" lg:w-[40vw] w-full rounded-lg shadow-md"
           />
 
           {isAuthor && (
-            <div className="absolute top-4 right-4 flex gap-2">
+            <div className="absolute top-4 right-4  flex  gap-2">
               <Link to={`/edit-post/${post.$id}`}>
                 <Button bgColor="bg-green-600">Edit</Button>
               </Link>

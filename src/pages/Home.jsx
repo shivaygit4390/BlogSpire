@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Loader from "../components/Loader";
 import { setCachedPosts } from "../store/postCacheSlice";
 import { sortPosts } from "../utils/sortPosts";
+import NoPostsFound from "../components/NoPostsFound";
 const Home = () => {
   const dispatch = useDispatch();
   const [posts, setPosts] = useState([]);
@@ -86,7 +87,7 @@ const Home = () => {
 
   if (!authStatus) {
     return (
-      <section className="w-full h-full py-16 text-center  flex flex-col justify-center items-center">
+      <section className="w-full min-h-screen py-16 text-center  flex flex-col justify-center items-center">
         <Container>
           <motion.div
             className="max-w-xl h-full mx-auto bg-white p-10 rounded-xl shadow-md border border-slate-300"
@@ -113,10 +114,10 @@ const Home = () => {
   }
 
   return (
-    <section className="w-full py-12 bg-gradient-to-br from-slate-50 to-slate-100 min-h-screen">
+    <section className="w-full py-12 bg-gradient-to-br from-slate-50 to-slate-100 h-fit">
       <Container>
         <motion.h1
-          className="text-3xl sm:text-4xl font-extrabold text-slate-800 mb-8 text-center sm:text-left"
+          className="text-3xl sm:text-4xl font-extrabold text-[#1c398e] mb-8 text-center sm:text-center"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
@@ -133,18 +134,18 @@ const Home = () => {
           />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-4">
-          {currentPosts.map((post, index) => (
-            <motion.div
-              key={post.$id}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3, delay: index * 0.1 }}
-            >
-              <PostCard {...post} />
-            </motion.div>
-          ))}
-        </div>
+ {   currentPosts.length > 0? ( <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-4">
+        {currentPosts.map((post, index) => (
+          <motion.div
+            key={post.$id}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.3, delay: index * 0.1 }}
+          >
+            <PostCard {...post} />
+          </motion.div>
+        ))}
+      </div>) : (<NoPostsFound/>) }
       </Container>
       <div className="flex items-center justify-center pt-5">
         {Array.from(

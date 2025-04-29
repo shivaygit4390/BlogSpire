@@ -67,6 +67,10 @@ const PostForm = ({ post }) => {
         toast.error(" Image is required to create a blog post!");
         return; // Stop further execution
       }
+      if (data.content.length > 1000) {
+        toast.error("🚫 Content limits Exceeded !!, Please shorten the content");
+        return; // Stop submission
+      }
       const file = await appwriteService.uploadFile(data.image[0]);
       if (file) {
         const fileId = file.$id;

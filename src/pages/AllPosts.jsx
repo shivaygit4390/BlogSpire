@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setCachedPosts } from "../store/postCacheSlice";
 import Loader from "../components/Loader";
 import { sortPosts } from "../utils/sortPosts";
+import NoPostsFound from "../components/NoPostsFound";
 
 const AllPosts = () => {
   const [posts, setPosts] = useState([]);
@@ -77,10 +78,10 @@ const AllPosts = () => {
   return (
     <>
       {authStatus ? (
-        <div className="w-full min-h-screen py-14 bg-gradient-to-br from-slate-100 to-blue-50">
+        <div className="w-full h-fit py-14 bg-gradient-to-br from-slate-100 to-blue-50">
           <Container>
-            <h1 className="text-4xl font-extrabold text-center text-blue-900 mb-12 tracking-tight">
-              📚 Browse All Latest Blogs
+            <h1 className="text-4xl font-extrabold text-center text-blue-900 mb-8 tracking-tight">
+              📚 Browse All Blogs
             </h1>
 
             {posts.length === 0 ? (
@@ -96,7 +97,7 @@ const AllPosts = () => {
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full mb-6 max-w-lg mx-auto block px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-300"
                 />
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-4">
+                 {   currentPosts.length > 0? (  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-4">
                   {currentPosts.map((post) => (
                     <div
                       key={post.$id}
@@ -105,7 +106,8 @@ const AllPosts = () => {
                       <PostCard {...post} />
                     </div>
                   ))}
-                </div>
+                </div> ) : (<NoPostsFound/>) }
+              
               </div>
             )}
           </Container>
