@@ -38,6 +38,14 @@ const PostForm = ({ post }) => {
   // now setting up submit logic for update and create
   const submit = async (data) => {
     if (post) {
+      if (data.content.length > 1000) {
+        toast.error("🚫 Content limits Exceeded !!, Please shorten the content");
+        return; // Stop submission
+      }
+      if (data.slug.length > 36) {
+        toast.error("Slug length exceeds, Please shorten your slug and keep it unique");
+        return;
+      }
       const file = data.image[0]
         ? await appwriteService.uploadFile(data.image[0])
         : null;
@@ -70,6 +78,10 @@ const PostForm = ({ post }) => {
       if (data.content.length > 1000) {
         toast.error("🚫 Content limits Exceeded !!, Please shorten the content");
         return; // Stop submission
+      }
+      if (data.slug.length > 36) {
+        toast.error("Slug length exceeds, Please shorten your slug and keep it unique");
+        return;
       }
       const file = await appwriteService.uploadFile(data.image[0]);
       if (file) {
