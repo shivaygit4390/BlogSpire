@@ -38,6 +38,10 @@ const PostForm = ({ post }) => {
   // now setting up submit logic for update and create
   const submit = async (data) => {
     if (post) {
+      if (!data.image || data.image.length === 0 ) {
+        toast.error(" Image is required to create a blog post!");
+        return; // Stop further execution
+      }
       if (data.content.length > 1000) {
         toast.error("🚫 Content limits Exceeded !!, Please shorten the content");
         return; // Stop submission
