@@ -87,7 +87,7 @@ const Home = () => {
 
   if (!authStatus) {
     return (
-      <section className="w-full min-h-screen py-16 text-center  flex flex-col justify-center items-center">
+      <section className="w-full h-fit py-16 text-center  flex flex-col justify-center items-center">
         <Container>
           <motion.div
             className="max-w-xl h-full mx-auto bg-white p-10 rounded-xl shadow-md border border-slate-300"
